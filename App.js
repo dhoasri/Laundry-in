@@ -1,20 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from "react-navigation-stack";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
+import SignIn from "./page/sigin.js";
+import SignUp from "./page/signup.js";
+import front from "./page/front.js";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const screens = {
+  SignInScreen: {
+    screen: SignIn,
   },
-});
+  SignUpScreen: {
+    screen: SignUp,
+  },
+};
+
+const App = createStackNavigator(
+  screens,
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#009387",
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
+  },
+  {initialRouteName: 'SignInScreen'}
+);
+
+const RootNavigator = createSwitchNavigator(
+  {
+    App: App,
+    Splash: front,
+  },
+  {
+    initialRouteName: "Splash",
+  }
+);
+
+export default createAppContainer(RootNavigator);
