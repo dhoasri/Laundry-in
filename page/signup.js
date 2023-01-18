@@ -4,6 +4,8 @@ import styles from './style';
 import 'firebase/firestore';
 import firebase from '../database/firebase';
 import { doc, setDoc } from "firebase/firestore"; 
+import { SceneView } from 'react-navigation';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default class signup extends Component {
     constructor(props) {
@@ -50,15 +52,20 @@ export default class signup extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                <View style={styles.viewStyle}>
-                <Image style={styles.gambar2} source={require('../assets/logo.png')} />
+                <ScrollView style={styles.viewStyle}>
+                <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                  <Image
+                  source={require('../assets/logo.png')}
+                  style={{width: 200, height: 140}}
+                  />
+                </View>
                 <Text style={styles.title}>
                         Register
                     </Text>
                 <View style={styles.action}>
                     <TextInput 
-                        style={{flex:1, height: 45,width: "95%",borderColor: "black",borderWidth: 2,backgroundColor: "lightblue", borderRadius: 10}}
-                        placeholder="  Nama"          
+                        style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                        placeholder="Nama"          
                         placeholderTextColor="black"
                         underlineColorAndroid="transparent"
                         onChangeText={username=>this.setState({username})}
@@ -66,8 +73,8 @@ export default class signup extends Component {
                 </View>
                 <View style={styles.action}>
                     <TextInput 
-                        style={{flex:1, height: 45,width: "95%",borderColor: "black",borderWidth: 2,backgroundColor: "lightblue", borderRadius: 10}}
-                        placeholder="  Email"          
+                        style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                        placeholder="Email"          
                         placeholderTextColor="black"
                         underlineColorAndroid="transparent"
                         onChangeText={email=>this.setState({email})}
@@ -75,19 +82,18 @@ export default class signup extends Component {
                 </View>
                 <View style={styles.action}>
                     <TextInput 
-                        style={{flex:1, height: 45,width: "95%",borderColor: "black",borderWidth: 2,backgroundColor: "lightblue", borderRadius: 10}}
-                        placeholder="  Password"          
+                        style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                        placeholder="Password"          
                         placeholderTextColor="black"
                         underlineColorAndroid="transparent"
                         secureTextEntry={true}
                         onChangeText={password=>this.setState({password})}
-                        
                         />
                 </View>
                 <View style={styles.action}>
                     <TextInput 
-                        style={{flex:1, height: 45,width: "95%",borderColor: "black",borderWidth: 2,backgroundColor: "lightblue", borderRadius: 10}}
-                        placeholder="  Ulangi Password"          
+                        style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                        placeholder="Ulangi Password"          
                         placeholderTextColor="black"
                         underlineColorAndroid="transparent"
                         secureTextEntry={true}
@@ -95,7 +101,7 @@ export default class signup extends Component {
                         />
                 </View>
                     
-                </View>
+                </ScrollView>
                 <View style={styles.registerButtonSection}>
                     <Button title="Register" onPress={()=>{this.InsertRecord()}}/>
                 </View>
