@@ -20,7 +20,7 @@ export default class front extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#009387",
+    backgroundColor: "#dbe4f3",
     alignItems: 'center',
     justifyContent: 'center',
   },
