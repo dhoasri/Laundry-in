@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, Pressable, Text, SafeAreaView, Image, Alert} from 'react-native';
+import { View, TextInput, Pressable, Text, SafeAreaView, Image, Alert, ScrollView} from 'react-native';
 import styles from './style';
 import 'firebase/firestore';
 import firebase from '../database/firebase';
@@ -68,15 +68,20 @@ export default class sigin extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                <View style={styles.viewStyle}>
-                <Image style={styles.gambar2} source={require('../assets/logo.png')} />
+                <ScrollView style={styles.viewStyle}>
+                <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                  <Image
+                  source={require('../assets/logo.png')}
+                  style={{width: 200, height: 140}}
+                  />
+                </View>
                 <Text style={styles.title}>
                         Login
                     </Text>
                     <View style={styles.action}>
                         <TextInput 
-                            style={{flex:1, height: 45,width: "95%",borderColor: "black",borderWidth: 2,backgroundColor: "lightblue", borderRadius: 15}}
-                            placeholder="   Username"          
+                            style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                            placeholder="Masukkan Username"          
                             placeholderTextColor="black"
                             underlineColorAndroid="transparent"
                             secureTextEntry={false}
@@ -86,8 +91,8 @@ export default class sigin extends Component {
                 
                     <View style={styles.action}>
                         <TextInput 
-                            style={{flex:1, height: 45,width: "95%",borderColor: "black",borderWidth: 2,backgroundColor: "lightblue", borderRadius: 15}}
-                            placeholder="   Password"          
+                            style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                            placeholder="Masukkan Password"          
                             placeholderTextColor="black"
                             underlineColorAndroid="transparent"
                             secureTextEntry={true}
@@ -114,7 +119,7 @@ export default class sigin extends Component {
                     </View>
                     <Text style={{marginTop: 0, textAlign: "center", color: 'white', fontSize: 20}}>
                     </Text>
-                </View>
+                </ScrollView>
             
             </SafeAreaView>
         );
