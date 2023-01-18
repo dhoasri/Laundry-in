@@ -27,11 +27,11 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     gambar2: {
-        marginTop: '1%',
+        flex: 1,
+        justifyContent: 'center',
         alignItems: 'center',
-        width: "100%",
-        height: 200,
-        marginBottom: 5,
+        width: 250,
+        height: 140,
     },
     button:{
         alignItems: 'center',
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     loginButton: {
-        backgroundColor: '#06baab',
+        backgroundColor: '#2396f2',
         color: 'white',
         height: 35,
         justifyContent: 'center',
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     registerButtonSection: {
         width: '100%',
         // height: '30%',
-        marginTop: '5%',
+        marginTop: '1%',
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: "#B8F2E8",
+        backgroundColor: "#dbe4f3",
     }
 })
 
