@@ -3,6 +3,7 @@ import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import SignIn from "./page/sigin.js";
 import SignUp from "./page/signup.js";
 import front from "./page/front.js";
+import Home from "./page/welcome.js";
 
 const screens = {
   SignInScreen: {
@@ -10,6 +11,9 @@ const screens = {
   },
   SignUpScreen: {
     screen: SignUp,
+  },
+  HomeScreen: {
+    screen: Home,
   },
 };
 
