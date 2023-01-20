@@ -72,7 +72,7 @@ export default class sigin extends Component {
                 <View style={{justifyContent: 'center', alignItems: 'center'}}>
                   <Image
                   source={require('../assets/logo.png')}
-                  style={{width: 200, height: 140}}
+                  style={{width: 200, height: 140, marginBottom: 15}}
                   />
                 </View>
                 <Text style={styles.title}>
@@ -80,8 +80,8 @@ export default class sigin extends Component {
                     </Text>
                     <View style={styles.action}>
                         <TextInput 
-                            style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
-                            placeholder="Masukkan Username"          
+                            style={{flex:1, height: 45,width: "95%",borderWidth: 1,borderColor: '#2396f2' ,backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                            placeholder="Masukkan Nama / email"          
                             placeholderTextColor="black"
                             underlineColorAndroid="transparent"
                             secureTextEntry={false}
@@ -91,7 +91,7 @@ export default class sigin extends Component {
                 
                     <View style={styles.action}>
                         <TextInput 
-                            style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                            style={{flex:1, height: 45,width: "95%",borderWidth: 1,borderColor: '#2396f2',backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
                             placeholder="Masukkan Password"          
                             placeholderTextColor="black"
                             underlineColorAndroid="transparent"
@@ -107,7 +107,7 @@ export default class sigin extends Component {
                             <Text style={styles.text}>Login</Text>
                         </Pressable>
                     </View>
-                    <Text style={{marginTop: 20, textAlign: "center", color: 'black', fontSize: 12}}>
+                    <Text style={{marginTop: 29, textAlign: "center", color: 'black', fontSize: 12}}>
                     Belum punya akun? Daftar di bawah ini
                     </Text>
                     <View style={styles.loginButtonSection}>
@@ -117,7 +117,7 @@ export default class sigin extends Component {
                             <Text style={styles.text}>Register</Text>
                         </Pressable>
                     </View>
-                    <Text style={{marginTop: 0, textAlign: "center", color: 'white', fontSize: 20}}>
+                    <Text style={{textAlign: "center", color: 'white', fontSize: 20}}>
                     </Text>
                 </ScrollView>
             
