@@ -24,16 +24,18 @@ export default class signup extends Component {
     InsertRecord=()=>{
         var Email = this.state.email;
         var Username = this.state.username;
+        var Nomor = this.state.nomor;
         var Password = this.state.password;
         var ConfirmPw = this.state.confirmPw;
 
-        if ((Email.length==0) || (Password.length==0) || (ConfirmPw.length==0) || (Username.length==0)){
-            alert("Required Field Is Missing!!!");
+        if ((Email.length==0) || (Nomor.length==0) || (Password.length==0) || (ConfirmPw.length==0) || (Username.length==0)){
+            alert("Silahkan masukkan data anda dengan benar !!!");
         }else{
             //cek email pada database
             setDoc(doc(firebase, "user", Username),{
                 username : Username,
                 email : Email,
+                nomor : Nomor,
                 password : Password
             })
             .then(() => {
@@ -64,7 +66,7 @@ export default class signup extends Component {
                     </Text>
                 <View style={styles.action}>
                     <TextInput 
-                        style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                        style={{flex:1, height: 45,width: "95%",borderWidth: 1,borderColor: '#2396f2',backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
                         placeholder="Nama"          
                         placeholderTextColor="black"
                         underlineColorAndroid="transparent"
@@ -73,7 +75,7 @@ export default class signup extends Component {
                 </View>
                 <View style={styles.action}>
                     <TextInput 
-                        style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                        style={{flex:1, height: 45,width: "95%",borderWidth: 1,borderColor: '#2396f2',backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
                         placeholder="Email"          
                         placeholderTextColor="black"
                         underlineColorAndroid="transparent"
@@ -82,7 +84,16 @@ export default class signup extends Component {
                 </View>
                 <View style={styles.action}>
                     <TextInput 
-                        style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                        style={{flex:1, height: 45,width: "95%",borderWidth: 1,borderColor: '#2396f2',backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                        placeholder="Nomor HP"          
+                        placeholderTextColor="black"
+                        underlineColorAndroid="transparent"
+                        onChangeText={nomor=>this.setState({nomor})}
+                        />   
+                </View>
+                <View style={styles.action}>
+                    <TextInput 
+                        style={{flex:1, height: 45,width: "95%",borderWidth: 1,borderColor: '#2396f2',backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
                         placeholder="Password"          
                         placeholderTextColor="black"
                         underlineColorAndroid="transparent"
@@ -92,7 +103,7 @@ export default class signup extends Component {
                 </View>
                 <View style={styles.action}>
                     <TextInput 
-                        style={{flex:1, height: 45,width: "95%",backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
+                        style={{flex:1, height: 45,width: "95%",borderWidth: 1,borderColor: '#2396f2',backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15, marginBottom: 15}}
                         placeholder="Ulangi Password"          
                         placeholderTextColor="black"
                         underlineColorAndroid="transparent"
