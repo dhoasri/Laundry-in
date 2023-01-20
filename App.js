@@ -1,9 +1,11 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import SignIn from "./page/sigin.js";
 import SignUp from "./page/signup.js";
 import front from "./page/front.js";
-import Home from "./page/welcome.js";
+import Home from "./page/home.js";
+import Maps from "./page/maps.js";
 
 const screens = {
   SignInScreen: {
@@ -14,6 +16,9 @@ const screens = {
   },
   HomeScreen: {
     screen: Home,
+  },
+  MapsScreen: {
+    screen: Maps,
   },
 };
 
