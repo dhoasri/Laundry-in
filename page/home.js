@@ -9,13 +9,12 @@ export default class home extends Component {
         <View style={styles.bargo}>
           <Text style={styles.header}>ANTAR - JEMPUT EXPRESS</Text>
           <Text style={styles.sub}>
-          Hanya menunggu dirumah dengan santai tanpa keluar rumah untuk mengantar atau mengambil laundry-an anda.
+          Kamu cukup duduk manis dirumah sambil nonton drakor kesayangan, masalah cucian sampe setrikaan biar kami yang kerjakan.
           </Text>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Home', { name: 'Halaman Home' })}>
+          <Pressable
+            style={styles.button}
+            onPress={()=>{this.props.navigation.navigate("MapsScreen")}}>
             <Text style={styles.btext}>Order Sekarang</Text>
-          </Pressable>
-          <Pressable style={styles.button} onPress={()=>{this.props.navigation.navigate("MapsScreen")}}>
-            <Text style={styles.btext}>Maps</Text>
           </Pressable>
         </View>
       </View>
@@ -30,15 +29,15 @@ const styles = StyleSheet.create({
   },
 
   gambar: {
-    marginTop: '15%',
-    width: 150,
-    height: 150,
+    marginTop: '10%',
+    width: 180,
+    height: 180,
     marginBottom: 35,
   },
 
   bargo: {
     width: '85%',
-    height: 400,
+    height: 350,
     backgroundColor: '#2396f2',
     alignItems: 'center',
     borderRadius: 15,
