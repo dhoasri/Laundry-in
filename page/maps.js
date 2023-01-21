@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { View, StyleSheet, Text, Alert, Pressable, SafeAreaView } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import * as Permissions from 'expo-permissions';
 import Constants from "expo-constants";
 import { format } from 'date-fns';
 import 'firebase/firestore';
@@ -84,8 +85,8 @@ export default class maps extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 1 }}>
-          <View style={{flex: 0.1, alignItems: 'center', height: 50, backgroundColor: '#009387'}}>
-            <Text>Lokasimu berada di:</Text>
+          <View style={{flex: 0.1, alignItems: 'center', height: 50, backgroundColor: '#53ACF4'}}>
+            <Text>Lokasi PickUp:</Text>
             <Text>Latitude: {lttd} </Text>
             <Text>Longitude {lngtd} </Text>
           </View>
@@ -111,7 +112,7 @@ export default class maps extends Component {
           </View>
           <View style={{flex: 0.1, flexDirection:'row', alignItems: 'center', height: 50, backgroundColor: '#009387'}}>
             <View style={[styles.box, styles.box1]}>
-              <Pressable style={styles.kembaliButton} onPress={()=>{this.props.navigation.navigate("SignInScreen")}}>
+              <Pressable style={styles.kembaliButton} onPress={()=>{this.props.navigation.navigate("HomeScreen")}}>
                 <Text style={{color: 'white'}}>Kembali</Text>
               </Pressable>  
             </View> 
