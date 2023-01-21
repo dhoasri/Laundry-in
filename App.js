@@ -6,6 +6,7 @@ import SignUp from "./page/signup.js";
 import front from "./page/front.js";
 import Home from "./page/home.js";
 import Maps from "./page/maps.js";
+import RiwayatLokasi from "./page/riwayatlokasi.js";
 
 const screens = {
   SignInScreen: {
@@ -19,6 +20,9 @@ const screens = {
   },
   MapsScreen: {
     screen: Maps,
+  },
+  RiwayatLokasiScreen: {
+    screen: RiwayatLokasi,
   },
 };
 
