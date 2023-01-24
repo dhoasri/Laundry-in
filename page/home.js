@@ -16,6 +16,11 @@ export default class home extends Component {
             onPress={()=>{this.props.navigation.navigate("MapsScreen")}}>
             <Text style={styles.btext}>Order Sekarang</Text>
           </Pressable>
+          <Pressable
+            style={styles.button2}
+            onPress={()=>{this.props.navigation.navigate("ProfilScreen")}}>
+            <Text style={styles.btext}>Profil</Text>
+          </Pressable>
         </View>
       </View>
     );
@@ -28,11 +33,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  gambar: {
-    marginTop: '10%',
+  box: {
+    flex: 1,
     width: 180,
     height: 180,
-    marginBottom: 35,
+    backgroundColor: 'green',
+  },
+  
+  gambar: {
+    marginTop: '20%',
+    width: 180,
+    height: 180,
+    marginBottom: 70,
   },
 
   bargo: {
@@ -44,9 +56,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+
   header: {
     fontSize: 38,
-    color: '#fff',
+    color: '#ffff',
     marginBottom: 15,
     fontWeight: "bold",
     textAlign: 'center',
@@ -68,6 +81,17 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: 'white',
     marginTop: 30,
+  },
+
+  button2: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 13,
+    elevation: 3,
+    backgroundColor: 'white',
+    marginTop: 10,
   },
 
   btext: {
