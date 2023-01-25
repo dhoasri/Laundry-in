@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Pressable, View, StyleSheet, Image, ScrollView} from 'react-native';
+import { Text, Pressable, View, StyleSheet, Image, ScrollView, Alert} from 'react-native';
 
 export default class home extends Component {
   render(){
@@ -13,12 +13,12 @@ export default class home extends Component {
           </Text>
           <Pressable
             style={styles.button}
-            onPress={()=>{this.props.navigation.navigate("MapsScreen")}}>
+            onPress={()=>{this.props.navigation.navigate("Maps")}}>
             <Text style={styles.btext}>Order Sekarang</Text>
           </Pressable>
           <Pressable
             style={styles.button2}
-            onPress={()=>{this.props.navigation.navigate("ProfilScreen")}}>
+            onPress={()=>{this.props.navigation.navigate("Profil")}}>
             <Text style={styles.btext}>Profil</Text>
           </Pressable>
         </View>
