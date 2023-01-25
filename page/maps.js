@@ -34,9 +34,8 @@ export default class maps extends Component {
         time: currentTime,
       })
       .then(() => {
-          //jika login berhasil maka masuk halaman login
-          console.log("data berhasil submit");
-          Alert.alert("Lokasi Berhasil Disimpan");
+        console.log("Password Berhasil DiUpdate");
+        Alert.alert("Pemberitahuan","Lokasi anda telah tersimpan");
       })
       .catch((error) => {
           //jika mengambil data gagal, akan tampil error
@@ -86,7 +85,7 @@ export default class maps extends Component {
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 1 }}>
           <View style={{flex: 0.1, alignItems: 'center', height: 50, backgroundColor: '#53ACF4'}}>
-            <Text>Lokasi PickUp:</Text>
+            <Text>Lokasi PickUp Laundry</Text>
             <Text>Latitude: {lttd} </Text>
             <Text>Longitude {lngtd} </Text>
           </View>
@@ -110,20 +109,15 @@ export default class maps extends Component {
                 />
             </MapView>
           </View>
-          <View style={{flex: 0.1, flexDirection:'row', alignItems: 'center', height: 50, backgroundColor: '#009387'}}>
-            <View style={[styles.box, styles.box1]}>
-              <Pressable style={styles.kembaliButton} onPress={()=>{this.props.navigation.navigate("HomeScreen")}}>
-                <Text style={{color: 'white'}}>Kembali</Text>
-              </Pressable>  
-            </View> 
+          <View style={{flex: 0.1, flexDirection:'row', alignItems: 'center', height: 50, backgroundColor: '#53ACF4', justifyContent: 'center'}}>
             <View style={[styles.box, styles.box2]}>
               <Pressable style={styles.simpanButton}onPress={()=>{this.InsertRecord() }}>
-                <Text style={styles.text}>Simpan Lokasi</Text>
+                <Text style={{color: 'white', alignItems: 'center'}}>Simpan Lokasi PickUp</Text>
               </Pressable>
             </View> 
             <View style={[styles.box, styles.box3]}>
               <Pressable style={styles.riwayatButton} onPress={()=>{this.props.navigation.navigate("RiwayatLokasiScreen")}}>
-                <Text style={{color: 'white'}}>Riwayat Lokasi</Text>
+                <Text style={{color: 'white', alignItems: 'center'}}>Lihat Lokasi Tersimpan</Text>
               </Pressable>
             </View>
           </View>
@@ -138,53 +132,24 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: "#6f00ff"
-    },
-    box: {
-      flex: 1, 
-      width: 100,
-      height: 100
-    },
-    box1: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#2196F3'
-    },
-    box2: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#8BC34A'
-    },
-    box3: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#e3aa1a'
+        backgroundColor: "#fff",
     },
     simpanButton: {
-      backgroundColor: '#06baab',
+      backgroundColor: '#2396f2',
       color: 'white',
       height: 35,
       justifyContent: 'center',
       alignItems: 'center',
-      width: '70%',
-      borderRadius: 10,
-    },
-    kembaliButton: {
-      backgroundColor: '#6f00ff',
-      color: 'white',
-      height: 35,
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '70%',
+      width: '80%',
       borderRadius: 10,
     },
     riwayatButton: {
-      backgroundColor: '#6f00ff',
+      backgroundColor: '#2396f2',
       color: 'white',
       height: 35,
       justifyContent: 'center',
       alignItems: 'center',
-      width: '70%',
+      width: '80%',
       borderRadius: 10,
     },
 })
