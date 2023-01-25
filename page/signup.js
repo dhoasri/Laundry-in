@@ -13,6 +13,7 @@ export default class signup extends Component {
         this.state = {
             username: '',
             email : '',
+            nomor : '',
             password : '',
             confirmPw : '',
             check_textInputChange : false,
@@ -111,12 +112,17 @@ export default class signup extends Component {
                         onChangeText={confirmPw=>this.setState({confirmPw})}
                         />
                 </View>
-                    
-                </ScrollView>
+                
                 <View style={styles.registerButtonSection}>
                     <Button title="Register" onPress={()=>{this.InsertRecord()}}/>
                 </View>
-                
+                <Text 
+                      style={styles.loginText}
+                      onPress={() => {this.props.navigation.navigate("SignInScreen")}}>
+                       Already Registered? Click here to login
+                  </Text>
+
+                </ScrollView>
             </SafeAreaView>
         );
     }
