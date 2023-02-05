@@ -2,4 +2,6 @@
 
 
 
-Run di VS Code, soalnya kalau di expo firebase nya gabisa
+Nama Kelompok:
+1. Ridho Rosadi Asri
+2. Jazilah Alfaisaliah Maksudi
