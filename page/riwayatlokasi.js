@@ -4,9 +4,10 @@ import MapView, { Marker } from 'react-native-maps';
 import Constants from "expo-constants";
 import 'firebase/firestore';
 import firebase from '../database/firebase';
-import { getDocs, collection} from "firebase/firestore"; 
+import { doc, getDocs, collection, deleteDoc} from "firebase/firestore"; 
+import { Pressable,HStack } from 'native-base'
 
-export default class riwayatlokasi extends Component {
+export default class RiwayatLokasi extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,6 +17,24 @@ export default class riwayatlokasi extends Component {
       dblongitude: 0,
       errorMessage: null,
     };
+  }
+
+  DeleteRecord=()=>{
+    this.setState({ isLoading: true });
+    var Alamat = this.state.alamat;
+    const { navigation } = this.props;
+    deleteDoc(doc(firebase,"Alamat", Alamat))
+      .then(() => {
+        this.setState({ isLoading: false });
+          console.log("data berhasil dihapus");
+          Alert.alert("Pemberitahuan","data berhasil dihapus!");
+          navigation.goBack();
+      })
+      .catch((error) => {
+        this.setState({ isLoading: false });
+        Alert.alert("Pemberitahuan","data gagal dihapus!");
+          setError(error.message);
+      })
   }
   
   componentDidMount() {
@@ -47,9 +66,9 @@ export default class riwayatlokasi extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 1 }}>
-          <View style={{flex: 0.1, alignItems: 'center', height: 50, backgroundColor: '#009387',
-            paddingTop: Constants.statusBarHeight}}>
-            <Text>Lokasimu sebelumnya berada di:</Text>
+          <View style={{flex: 0.1, alignItems: 'center', height: 50, backgroundColor: '#53ACF4',
+            paddingTop: 50}}>
+            <Text>Riwayat Lokasi</Text>
             <Text>Latitude: {lttd} </Text>
             <Text>Longitude {lngtd} </Text>
           </View>
@@ -73,6 +92,23 @@ export default class riwayatlokasi extends Component {
                 />
             </MapView>
           </View>
+          <HStack mb="5" px="5">
+                    <Pressable
+                        onPress={() => {this.DeleteRecord();}}
+                        bg="#57D1D1"
+                        borderRadius="15"
+                        style={{
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "43%",
+                            padding: 10,
+                        }}
+                    >
+                        <Text  fontSize="20" color="#000000" fontWeight="bold">
+                            Hapus Riwayat
+                        </Text>
+                    </Pressable>
+                    </HStack>
         </View>
       </SafeAreaView>
       
