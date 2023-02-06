@@ -26,7 +26,7 @@ import Feather from "react-native-vector-icons/Feather";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import 'firebase/firestore';
 import firebase from '../database/firebase';
-import { doc, setDoc, updateDoc, where } from "firebase/firestore"; 
+import { doc, setDoc, deleteDoc,updateDoc, where } from "firebase/firestore"; 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default class Riwayat extends Component {
@@ -85,52 +85,45 @@ export default class Riwayat extends Component {
     });
   }
 
+
   render() {
     return (
       <NativeBaseProvider bg="#57D1D1">
         <VStack flex="1" justifyContent={"center"} alignItems={"center"} bg="#dbe4f3" style={{
-            marginTop: Constants.statusBarHeight,
+            marginTop: 1,
           }}>
           <Flex style={{ flex: 15 }} p={0} direction="row"  px={5}>
-            <Image source={require('../assets/logo.png')} alt="Judul Logo"  style={{ width: 200, height: 130}}/>
-            <Spacer />
-            <Text mt="10" fontSize="xl" bold>Profil</Text>
+            <Image source={require('../assets/logo.png')} alt="Logo"  style={{ width: 200, height: 130}}/>
+
           </Flex> 
-          <Box height={"60%"} width={"100%"} bg="#FFFFFF" style={{ flex: 85 }} borderTopRadius="50" >
+          <Box height={"10%"} width={"100%"} marginTop={5} bg="#FFFFFF" style={{ flex: 85 }} borderTopRadius="20" >
             <Center>
-                <Box mt="10" borderRadius="100" borderColor="#57D1D1" borderWidth="1" shadow="9" bg="#FFFFFF" w="75" h="75" justifyContent={"center"} alignItems={"center"}>
-                    <Icon
-                        name="user"
-                        size={30}
-                        color='#000000'
-                    />
-                </Box>
+                
                 <ScrollView>
                 <FormControl w="95%" pt="20%" >
+                <FormControl.Label>
+                        <Text fontFamily="heading" fontWeight="500" fontSize="xl">Nama</Text>
+                    </FormControl.Label> 
+                    <Center>
+                    <Box mb="5" borderRadius="10" w="95%" h="55" borderColor="#2396f2" borderWidth="1" justifyContent={"center"} px="5">
+                            <Text fontSize="2xl">{this.state.username}</Text>
+                        </Box>
+                    </Center>
                   <FormControl.Label>
                         <Text fontFamily="heading" fontWeight="500" fontSize="xl">Email</Text>
                     </FormControl.Label> 
                     <Center>
-                        <Box mb="5" borderRadius="20" shadow="3" bg="#F0FFFF" w="95%" h="75" borderColor="#57D1D1" borderWidth="3" justifyContent={"center"} px="5">
+                    <Box mb="5" borderRadius="10" w="95%" h="55" borderColor="#2396f2" borderWidth="1" justifyContent={"center"} px="5">
                             <Text fontSize="2xl">{this.state.email}</Text>
-                        </Box>
-                    </Center>
-                    <FormControl.Label>
-                        <Text fontFamily="heading" fontWeight="500" fontSize="xl">Username</Text>
-                    </FormControl.Label> 
-                    <Center>
-                        <Box mb="5" borderRadius="20" shadow="3" bg="#F0FFFF" w="95%" h="75" borderColor="#57D1D1" borderWidth="3" justifyContent={"center"} px="5">
-                            <Text fontSize="2xl">{this.state.username}</Text>
                         </Box>
                     </Center>
                     <FormControl.Label>
                         <Text fontFamily="heading" fontWeight="500" fontSize="xl">Password</Text>
                     </FormControl.Label>
                     <Center>
-                        <Box mb="10" borderRadius="20" shadow="3" bg="#FFFFFF" w="95%" h="75" borderColor="#57D1D1" borderWidth="3">
-                            <Input
-                                w="100%" h="70"
-                                borderRadius="20" borderWidth="1"
+                      <Input
+                                w="95%" h="55"
+                                borderRadius="10" borderWidth="1" borderColor="#2396f2"
                                 mb="5"
                                 size="2xl"
                                 variant="underlined"
@@ -142,7 +135,7 @@ export default class Riwayat extends Component {
                                 onChangeText={(password) => this.setState({ password })}
                                 InputRightElement={
                                     <Pressable
-                                    mr="3"
+                                    mr="5"
                                     onPress={this.updateSecureTextEntry.bind(this)}
                                     >
                                     {this.state.secureTextEntry ? (
@@ -153,41 +146,39 @@ export default class Riwayat extends Component {
                                     </Pressable>
                                 }
                             />
-                        </Box>
                     </Center>
                 </FormControl>
                 <HStack mb="5" px="5">
                     <Pressable
                         onPress={() => {this.UpdateData();}}
-                        bg="#57D1D1"
-                        borderRadius="15"
+                        bg="#6DC6F9"
+                        borderRadius="5"
                         style={{
                             alignItems: "center",
                             justifyContent: "center",
                             width: "43%",
                             padding: 10,
-                        }}
-                    >
-                        <Text  fontSize="20" color="#000000" fontWeight="bold">
+                        }}>
+                        <Text  fontSize="15" color="#ffff" fontWeight="bold">
                             Update Profil
                         </Text>
                     </Pressable>
                     <Spacer/>
                     <Pressable
-                        onPress={()=>{this.props.navigation.navigate("SignInScreen")}}
-                        bg="#DC143C"
-                        borderRadius="15"
+                        onPress={()=>{this.props.navigation.navigate("SignIn")}}
+                        bg="#C72928"
+                        borderRadius="5"
                         style={{
                             alignItems: "center",
                             justifyContent: "center",
                             width: "43%",
-                            padding: 10,
-                        }}
-                    >
-                        <Text  fontSize="20" color="#DCDCDC" fontWeight="bold">
-                            LogOut
+                            padding: 13,
+                        }}>
+                        <Text  fontSize="15" color="#ffff" fontWeight="bold">
+                            Keluar
                         </Text>
                     </Pressable>
+                   
                 </HStack>
                 </ScrollView>
             </Center>
