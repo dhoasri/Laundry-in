@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, Pressable, View, StyleSheet, Image, ScrollView, Alert} from 'react-native';
 
-export default class home extends Component {
+export default class Home extends Component {
   render(){
     return (
       <View style={styles.container}>
@@ -13,13 +13,8 @@ export default class home extends Component {
           </Text>
           <Pressable
             style={styles.button}
-            onPress={()=>{this.props.navigation.navigate("Maps")}}>
+            onPress={()=>{this.props.navigation.navigate("Pesanan")}}>
             <Text style={styles.btext}>Order Sekarang</Text>
-          </Pressable>
-          <Pressable
-            style={styles.button2}
-            onPress={()=>{this.props.navigation.navigate("Profil")}}>
-            <Text style={styles.btext}>Profil</Text>
           </Pressable>
         </View>
       </View>
@@ -29,6 +24,8 @@ export default class home extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: "#dbe4f3",
     alignItems: 'center',
     justifyContent: 'center',
   },
