@@ -6,13 +6,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import SignIn from "./page/sigin.js";
+import SignIn from "./page/signin.js";
 import SignUp from "./page/signup.js";
 import front from "./page/front.js";
 import Home from "./page/home.js";
 import Maps from "./page/maps.js";
 import RiwayatLokasi from "./page/riwayatlokasi.js";
 import Profil from "./page/profil.js";
+import Pesanan from "./page/pesanan";
+import Riwayat from './page/riwayat.js';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -25,8 +27,8 @@ const BottomNavigator = () => {
           let iconName;
           if (route.name === 'Home') {
             iconName = 'home';
-          } else if (route.name === 'Maps') {
-            iconName = 'google-maps';
+          } else if (route.name === 'Riwayat Order') {
+            iconName = 'history';
           } else if (route.name === 'Profil') {
             iconName = 'account';
           } 
@@ -34,7 +36,7 @@ const BottomNavigator = () => {
             <Icon
               as={MaterialCommunityIcons}
               name={iconName}
-              size={30}
+              size={9}
               color={focused ? 'primary.600' : '#ffff'}
             />
           );
@@ -50,9 +52,7 @@ const BottomNavigator = () => {
         tabBarStyle: {
           height: 60,
           borderTopWidth: 0,
-          backgroundColor: '#2396f2',
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20
+          backgroundColor: '#99D2FF'
         },
       })}>
       <Tab.Screen
@@ -60,18 +60,18 @@ const BottomNavigator = () => {
         component={Home}
         options={{
           unmountOnBlur: true,
-          headerShown: false,
+          headerShown: true,
           tabBarLabel: () => {
             return null;
           },
         }}
       />
       <Tab.Screen
-        name="Maps"
-        component={Maps}
+        name="Riwayat Order"
+        component={Riwayat}
         options={{
           unmountOnBlur: true,
-          headerShown: false,
+          headerShown: true,
           tabBarLabel: () => {
             return null;
           },
@@ -82,7 +82,7 @@ const BottomNavigator = () => {
         component={Profil}
         options={{
           unmountOnBlur: true,
-          headerShown: false,
+          headerShown: true,
           tabBarLabel: () => {
             return null;
           },
@@ -97,7 +97,7 @@ const App = () => {
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
+        <Stack.Screen
             name="SignIn"
             component={SignIn}
             options={{ headerShown: false }}
@@ -111,6 +111,21 @@ const App = () => {
             name="SignUp"
             component={SignUp}
             options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="RiwayatLokasi"
+            component={RiwayatLokasi}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+          name="Maps"
+          component={Maps}
+          options={{ headerShown: false}}
+          />
+          <Stack.Screen
+          name="Pesanan"
+          component={Pesanan}
+          options={{ headerShown: false}}
           />
         </Stack.Navigator>
       </NavigationContainer>
@@ -128,4 +143,4 @@ const RootNavigator = createSwitchNavigator(
   }
 );
 
-export default App;
+export default createAppContainer(RootNavigator);
