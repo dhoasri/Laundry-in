@@ -5,8 +5,9 @@ import 'firebase/firestore';
 import firebase from '../database/firebase';
 import { getDocs, query, collection, where} from "firebase/firestore"; 
 import Feather from "react-native-vector-icons/Feather";
+import { FormControl, Center,Input, } from 'native-base';
 
-export default class sigin extends Component {
+export default class SignIn extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -87,40 +88,56 @@ export default class sigin extends Component {
                 <Text style={styles.title}>
                         Login
                     </Text>
-                    <View style={styles.action}>
-                        <TextInput 
-                            style={{flex:1, height: 45,width: "95%",borderWidth: 1,borderColor: '#2396f2' ,backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
-                            placeholder="Masukkan Nama / email"          
+                <FormControl w="100%" pt="5%" >
+                  <FormControl.Label>
+                        <Text fontFamily="heading" fontWeight="500" fontSize="x1">Email</Text>
+                    </FormControl.Label> 
+                    <Center>
+                    <Input
+                            w="95%" h="45"
+                            borderRadius="10" borderWidth="1"
+                            mb="5"
+                            size="1x1"
+                            p={2}
+                            backgroundColor= "#ffff"
                             placeholderTextColor="black"
+                            borderColor= '#2396f2'
                             underlineColorAndroid="transparent"
-                            secureTextEntry={false}
                             onChangeText={(username)=>this.setState({username})}
-                            />   
-                    </View>
-                
-                    <View style={styles.action}>
-                        <TextInput 
-                            style={{flex:1, height: 45,width: "95%",borderWidth: 1,borderColor: '#2396f2',backgroundColor: "#ffff", borderRadius: 13, paddingLeft: 15}}
-                            placeholder="Masukkan Password"          
-                            placeholderTextColor="black"
-                            underlineColorAndroid="transparent"
-                            secureTextEntry={true}
-                            onChangeText={(password) => this.setState({ password })}
-                            InputRightElement={
-                              <Pressable
-                              mr="3"
-                              onPress={this.updateSecureTextEntry.bind(this)}
-                              >
-                              {this.state.secureTextEntry ? (
-                                  <Feather name="eye-off" color="black" size={20} />
-                              ) : (
-                                  <Feather name="eye" color="black" size={20} />
-                              )}
-                              </Pressable>
-                          }
                             />
-                            
-                    </View>
+                    </Center>
+                    <FormControl.Label>
+                        <Text fontFamily="heading" fontWeight="500" fontSize="xl">Password</Text>
+                    </FormControl.Label>
+                    <Center>
+                      <Input
+                                w="95%" h="45"
+                                borderRadius="10" borderWidth="1"
+                                mb="5"
+                                size="1x1"
+                                p={2}
+                                backgroundColor= "#ffff"
+                                placeholderTextColor="black"
+                                borderColor= '#2396f2'
+                                underlineColorAndroid="transparent"
+                                secureTextEntry={this.state.secureTextEntry ? true : false}
+                                onChangeText={(password) => this.setState({ password })}
+                                InputRightElement={
+                                    <Pressable
+                                    mr="2"
+                                    onPress={this.updateSecureTextEntry.bind(this)}
+                                    >
+                                    {this.state.secureTextEntry ? (
+                                        <Feather name="eye-off" color="#000000" size={20} />
+                                    ) : (
+                                        <Feather name="eye" color="#808080" size={20} />
+                                    )}
+                                    </Pressable>
+                                }
+                            />
+                            </Center>
+                      
+                  
                         {/* Button */}
                     <View style={styles.loginButtonSection}>
                         <Pressable
@@ -133,6 +150,7 @@ export default class sigin extends Component {
                       onPress={() => {this.props.navigation.navigate("SignUp")}}>
                       Don't have an account? Register here
                   </Text>
+                  </FormControl>
                 </ScrollView>
             
             </SafeAreaView>
