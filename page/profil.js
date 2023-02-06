@@ -75,7 +75,14 @@ export default class Riwayat extends Component {
   logOut = async() => {
     const { navigation } = this.props;
     AsyncStorage.clear();
-    navigation.navigate('Login');
+    navigation.navigate('Login')
+    .then(() => {
+      console.log("Password Berhasil DiUpdate");
+      Alert.alert("Pemberitahuan","Password Berhasil DiUpdate");
+  })
+  .catch(error => {
+      console.log(error);
+  })
   }
 
   updateSecureTextEntry() {
@@ -101,21 +108,24 @@ export default class Riwayat extends Component {
                 
                 <ScrollView>
                 <FormControl w="95%" pt="20%" >
-                <FormControl.Label>
-                        <Text fontFamily="heading" fontWeight="500" fontSize="xl">Nama</Text>
-                    </FormControl.Label> 
+                
+                    <FormControl.Label>
+                        <Text fontFamily="heading" fontWeight="500" fontSize="xl">username</Text>
+                    </FormControl.Label>
                     <Center>
-                    <Box mb="5" borderRadius="10" w="95%" h="55" borderColor="#2396f2" borderWidth="1" justifyContent={"center"} px="5">
-                            <Text fontSize="2xl">{this.state.username}</Text>
-                        </Box>
-                    </Center>
-                  <FormControl.Label>
-                        <Text fontFamily="heading" fontWeight="500" fontSize="xl">Email</Text>
-                    </FormControl.Label> 
-                    <Center>
-                    <Box mb="5" borderRadius="10" w="95%" h="55" borderColor="#2396f2" borderWidth="1" justifyContent={"center"} px="5">
-                            <Text fontSize="2xl">{this.state.email}</Text>
-                        </Box>
+                      <Input
+                                w="95%" h="55"
+                                borderRadius="10" borderWidth="1" borderColor="#2396f2"
+                                mb="5"
+                                size="2xl"
+                                variant="underlined"
+                                p={2}
+                                fontWeight="400"
+                                fontFamily="mono"
+                                placeholderTextColor="#57D1D1"
+                                onChangeText={(username) => this.setState({ username })}
+                                
+                            />
                     </Center>
                     <FormControl.Label>
                         <Text fontFamily="heading" fontWeight="500" fontSize="xl">Password</Text>
