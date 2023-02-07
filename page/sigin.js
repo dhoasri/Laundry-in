@@ -90,7 +90,7 @@ export default class SignIn extends Component {
                     </Text>
                 <FormControl w="100%" pt="5%" >
                   <FormControl.Label>
-                        <Text fontFamily="heading" fontWeight="500" fontSize="x1">Email</Text>
+                        <Text fontFamily="heading" fontWeight="500" fontSize="x1">Username</Text>
                     </FormControl.Label> 
                     <Center>
                     <Input
