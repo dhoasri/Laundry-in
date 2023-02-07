@@ -6,17 +6,10 @@ const styles = StyleSheet.create({
         padding: 20,
         marginTop: 50,
     },
-    textInput:{
-        borderBottomColor: '#ff0000',
-        borderBottomWidth: 1,
-        marginBottom: 50,
-        height: 40,
-        fontSize: 20
-    },
-    viewStyle:{
+    viewStyle2:{
         flex: 1,
         padding: 20,
-        marginTop: 50,
+        marginTop: 50
     },
     textInput:{
         borderBottomColor: '#ff0000',
@@ -25,6 +18,13 @@ const styles = StyleSheet.create({
         height: 40,
         fontSize: 20,
         flex: 1,
+    },
+    loginText: {
+        color: '#363636',
+        marginTop: 25,
+        textAlign: 'center',
+        justifyContent: 'center',
+        fontWeight: 'bold'
     },
     gambar2: {
         flex: 1,
@@ -41,24 +41,49 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: 'black',
     },
+    button2:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 35,
+        width: 250,
+        borderRadius: 5,
+        backgroundColor: '#2396f2',
+    },
     action: {
         flexDirection: 'row',
         marginTop: 10,
         paddingBottom: 5,
         width: '100%'
     },
+    action2: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        marginTop: 10,
+        paddingBottom: 5,
+        width: '90%'
+    },
+    action3: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        marginTop: 10,
+        paddingBottom: 5,
+        width: '100%'
+    },
     text: {
-        fontSize: 18,
+        fontSize: 15,
         lineHeight: 21,
-        fontWeight: 'bold',
         letterSpacing: 0.25,
         color: 'white',
         textTransform: 'uppercase'
     },
     title: {
-        fontSize: 30,
-        fontWeight: "bold", 
-        color: "#FF914D",
+        flex: 1,
+        fontSize: 25,
+        fontWeight: "bold",
+        textAlign: 'center',
+        color: "#2396f2",
     },
     subtitle: {
         fontSize: 20, 
@@ -72,18 +97,20 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     loginButton: {
-        backgroundColor: '#2396f2',
+        backgroundColor: '#01A6CA',
         color: 'white',
         height: 35,
         justifyContent: 'center',
         alignItems: 'center',
         width: '50%',
         borderRadius: 10,
+        borderWidth: 2,
+        borderColor: '#FFFF'
     },
     registerButtonSection: {
         width: '100%',
         // height: '30%',
-        marginTop: '1%',
+        marginTop: 30,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -99,7 +126,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#dbe4f3",
-    }
+    },
+    koor: {
+        width: '100%',
+        // height: '30%',
+        marginTop: 30,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 })
 
 export default styles;
