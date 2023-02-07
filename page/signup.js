@@ -31,7 +31,7 @@ export default class SignUp extends Component {
         var Password = this.state.password;
         var ConfirmPw = this.state.confirmPw;
 
-        if ((Email.length==0) || (Nomor.length==0) || (Password.length==0) || (ConfirmPw.length==0) || (Username.length==0)){
+        if ((Email.length==0)){
             alert("Silahkan masukkan data anda dengan benar !!!");
         }else{
             //cek email pada database
