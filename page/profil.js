@@ -110,7 +110,7 @@ export default class Riwayat extends Component {
                 <FormControl w="95%" pt="20%" >
                 
                     <FormControl.Label>
-                        <Text fontFamily="heading" fontWeight="500" fontSize="xl">username</Text>
+                        <Text fontFamily="heading" fontWeight="500" fontSize="xl">Username</Text>
                     </FormControl.Label>
                     <Center>
                       <Input
@@ -128,7 +128,7 @@ export default class Riwayat extends Component {
                             />
                     </Center>
                     <FormControl.Label>
-                        <Text fontFamily="heading" fontWeight="500" fontSize="xl">Password</Text>
+                        <Text fontFamily="heading" fontWeight="500" fontSize="xl">Password baru</Text>
                     </FormControl.Label>
                     <Center>
                       <Input
